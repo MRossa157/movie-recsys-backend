@@ -175,4 +175,7 @@ info.zip
 # postgres local storage
 postgres-data/
 
+# models storage
+2025*
+
 .DS_Store

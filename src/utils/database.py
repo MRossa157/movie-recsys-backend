@@ -5,7 +5,7 @@ from contextlib import asynccontextmanager
 from asyncpg import Pool, create_pool
 from asyncpg.connection import Connection
 
-from src.config import settings
+from src.config import db_settings
 
 
 class _DatabaseManager:
@@ -40,11 +40,11 @@ class _DatabaseManager:
         Создать пул соединений для выполнения CRUD операций с базой данных.
         """
         self.__pool = await create_pool(
-            host=settings.DATABASE_HOST,
-            port=int(settings.DATABASE_PORT),
-            database=settings.DATABASE_NAME,
-            user=settings.DATABASE_USER,
-            password=settings.DATABASE_PASSWORD,
+            host=db_settings.HOST,
+            port=int(db_settings.PORT),
+            database=db_settings.NAME,
+            user=db_settings.USER,
+            password=db_settings.PASSWORD,
             init=self.__init_connection,
         )
 
