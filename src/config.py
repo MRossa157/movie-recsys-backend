@@ -19,4 +19,5 @@ class AppSettings(AppBaseSettings):
     BACK_PORT: int
 
 
-settings = Settings()
+app_settings = AppSettings()
+db_settings = DBSettings()

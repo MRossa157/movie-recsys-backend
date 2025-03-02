@@ -10,16 +10,16 @@ ENV PYTHONDONTWRITEBYTECODE 1
 RUN pip install poetry
 
 # Set the working directory in the container to /app
-WORKDIR /backend
+WORKDIR /.
 
 # Copy only the dependency files to avoid caching issues
-COPY backend/ ./
+COPY ./ ./
 
 # Something can screw up during the development process, so rebuild lockfile
 RUN poetry lock
 
 # Install project dependencies using Poetry
 RUN poetry config virtualenvs.create false && \
-    poetry install --no-interaction --no-ansi
+    poetry install --no-interaction --no-ansi --no-root
 
 CMD ["poetry", "shell"]

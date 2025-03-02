@@ -1,10 +1,10 @@
-from os import getenv
-
 import uvicorn
+
+from src.config import app_settings
 
 if __name__ == '__main__':
     uvicorn.run(
         app='src.app:app',
-        host='0.0.0.0',
-        port=int(getenv('BACK_URL').split(':')[2]),
+        host=app_settings.BACK_HOST,
+        port=int(app_settings.BACK_PORT),
     )
