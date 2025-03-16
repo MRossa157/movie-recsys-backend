@@ -36,5 +36,5 @@ katya_features = Features(
         age='age_18_24',
         sex='Ж',
         income='income_0_20',
-    )
+    ),
 )
